@@ -12,15 +12,15 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nim-fawn.vercel.app/'),
+  metadataBase: new URL('https://noithatxuanhoa.com.vn/'),
   alternates: {
     canonical: '/'
   },
   title: {
-    default: 'Nội Thất Xuân Hòa - Tiêu chuẩn Quốc Tế, Giá trị Bền Lâu',
+    default: 'Nội Thất Xuân Hòa - Nhà sản xuất nội thất hàng đầu Việt Nam',
     template: '%s | Nội Thất Xuân Hòa'
   },
-  description:  'Thiết kế và sản xuất nội thất văn phòng, gia đình, trường học, hội trường phong cách hiện đại trẻ trung năng động.',
+  description: 'Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của chúng tôi.',
 };
 
 const geist = Geist({

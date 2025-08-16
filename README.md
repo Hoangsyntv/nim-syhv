@@ -1,6 +1,6 @@
 <img src="/public/cover.jpg" alt="Cover image representing Nim, a personal website template" width="100%" />
 
-Nim is a free and open-source personal website template built with Next.js 15, React 19, Tailwind CSS v4, and Motion. Designed for developers, designers, and founders, it combines minimalism with delightful animated components powered by [Motion-Primitives](https://motion-primitives.com).
+Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của Xuân Hòa trong hoạt động kinh doanh và phục vụ người tiêu dùng.
 
 Live demo: [https://nim-fawn.vercel.app](https://nim-fawn.vercel.app)
 
