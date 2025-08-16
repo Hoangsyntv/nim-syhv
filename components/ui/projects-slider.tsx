@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
+import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -25,6 +25,8 @@ export function ProjectsSlider({ projects }: ProjectsCarouselProps) {
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
+  
+  type UseEmblaCarouselApi = UseEmblaCarouselType[1]
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
@@ -36,15 +38,20 @@ export function ProjectsSlider({ projects }: ProjectsCarouselProps) {
   }, [emblaApi])
 
   useEffect(() => {
-    if (!emblaApi) return undefined
-    
-    onSelect()
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setPrevBtnEnabled(emblaApi.canScrollPrev())
+      setNextBtnEnabled(emblaApi.canScrollNext())
+    }
+
     emblaApi.on('select', onSelect)
-    
+    onSelect()
+
     return () => {
       emblaApi.off('select', onSelect)
     }
-  }, [emblaApi, onSelect])
+  }, [emblaApi])
 
   return (
     <div className="relative px-4 md:px-8">
