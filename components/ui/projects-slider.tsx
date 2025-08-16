@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
-import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react'
+import useEmblaCarousel from 'embla-carousel-react'
+import type { EmblaCarouselType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -16,8 +17,6 @@ interface ProjectsCarouselProps {
 }
 
 export function ProjectsSlider({ projects }: ProjectsCarouselProps) {
-  type EmblaCarouselType = UseEmblaCarouselType[1]
-  
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'start',
@@ -31,21 +30,28 @@ export function ProjectsSlider({ projects }: ProjectsCarouselProps) {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
-  const updateButtonStates = useCallback((api: NonNullable<EmblaCarouselType>) => {
-    setPrevBtnEnabled(api.canScrollPrev())
-    setNextBtnEnabled(api.canScrollNext())
-  }, [])
+  const updateButtonStates = useCallback(() => {
+    if (!emblaApi) return
+    setPrevBtnEnabled(emblaApi.canScrollPrev())
+    setNextBtnEnabled(emblaApi.canScrollNext())
+  }, [emblaApi])
 
   useEffect(() => {
     if (!emblaApi) return
 
-    updateButtonStates(emblaApi)
-    emblaApi.on('select', () => updateButtonStates(emblaApi))
+    const onSelect = () => {
+      if (!emblaApi) return
+      setPrevBtnEnabled(emblaApi.canScrollPrev())
+      setNextBtnEnabled(emblaApi.canScrollNext())
+    }
+
+    emblaApi.on('select', onSelect)
+    onSelect()
 
     return () => {
-      emblaApi.off('select', () => updateButtonStates(emblaApi))
+      emblaApi.off('select', onSelect)
     }
-  }, [emblaApi, updateButtonStates])
+  }, [emblaApi])
 
   return (
     <div className="relative px-4 md:px-8">
