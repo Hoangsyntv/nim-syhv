@@ -1,7 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import useEmblaCarousel from 'embla      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
-          <div className="flex gap-6 mx-4">react'
+import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'motion/react'
@@ -33,7 +31,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
 
   const [scrollProgress, setScrollProgress] = useState(0)
 
-  const onScroll = useCallback((emblaApi) => {
+  const onScroll = useCallback((emblaApi: any) => {
     const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()))
     setScrollProgress(progress * 100)
   }, [])
@@ -41,8 +39,8 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
@@ -60,7 +58,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
 
     return () => {
       emblaApi.off('select', onSelect)
-      emblaApi.off('scroll')
+      emblaApi.off('scroll', () => onScroll(emblaApi))
     }
   }, [emblaApi, onSelect, onScroll])
 
