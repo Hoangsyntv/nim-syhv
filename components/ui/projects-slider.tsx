@@ -36,10 +36,14 @@ export function ProjectsSlider({ projects }: ProjectsCarouselProps) {
   }, [emblaApi])
 
   useEffect(() => {
-    if (!emblaApi) return
+    if (!emblaApi) return undefined
+    
     onSelect()
     emblaApi.on('select', onSelect)
-    return () => emblaApi.off('select', onSelect)
+    
+    return () => {
+      emblaApi.off('select', onSelect)
+    }
   }, [emblaApi, onSelect])
 
   return (
