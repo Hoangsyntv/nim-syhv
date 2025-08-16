@@ -1,0 +1,281 @@
+'use client'
+import { motion } from 'motion/react'
+import { XIcon } from 'lucide-react'
+import { Spotlight } from '@/components/ui/spotlight'
+import { Magnetic } from '@/components/ui/magnetic'
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogClose,
+  MorphingDialogContainer,
+} from '@/components/ui/morphing-dialog'
+import Link from 'next/link'
+import { AnimatedBackground } from '@/components/ui/animated-background'
+import {
+  PROJECTS,
+  WORK_EXPERIENCE,
+  BLOG_POSTS,
+  EMAIL,
+  SOCIAL_LINKS,
+} from './data'
+
+const VARIANTS_CONTAINER = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const VARIANTS_SECTION = {
+  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+}
+
+const TRANSITION_SECTION = {
+  duration: 0.3,
+}
+
+function ProjectVideo({ src }: { src: string }) {
+  return (
+    <MorphingDialog
+      transition={{
+        type: 'spring',
+        bounce: 0,
+        duration: 0.3,
+      }}
+    >
+      <MorphingDialogTrigger>
+        <video
+          src={src}
+          autoPlay
+          loop
+          muted
+          className="aspect-video w-full cursor-zoom-in rounded-xl"
+        />
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+          <video
+            src={src}
+            autoPlay
+            loop
+            muted
+            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
+          />
+        </MorphingDialogContent>
+        <MorphingDialogClose
+          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
+          variants={{
+            initial: { opacity: 0 },
+            animate: {
+              opacity: 1,
+              transition: { delay: 0.3, duration: 0.1 },
+            },
+            exit: { opacity: 0, transition: { duration: 0 } },
+          }}
+        >
+          <XIcon className="h-5 w-5 text-zinc-500" />
+        </MorphingDialogClose>
+      </MorphingDialogContainer>
+    </MorphingDialog>
+  )
+}
+
+function MagneticSocialLink({
+  children,
+  link,
+}: {
+  children: React.ReactNode
+  link: string
+}) {
+  return (
+    <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+      <a
+        href={link}
+        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+      >
+        {children}
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-3 w-3"
+        >
+          <path
+            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+            fill="currentColor"
+            fillRule="evenodd"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+      </a>
+    </Magnetic>
+  )
+}
+
+export default function Personal() {
+  return (
+    <motion.div
+      className="w-full space-y-16 sm:space-y-24 py-8 sm:py-12"
+      variants={VARIANTS_CONTAINER}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+        className="space-y-8"
+      >
+        <div className="space-y-4">
+          <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400">
+            Nội thất Xuân Hòa Thành lập năm 1980 với đội ngũ nhân sự chất lượng cao kết hợp công nghệ và máy móc hiện đại, quy trình quản trị sản xuất tiên tiến cùng việc hợp tác với các đối tác quốc tế, Xuân Hòa cam kết mang sản phẩm tiêu chuẩn chất lượng quốc tế phục vụ người tiêu dùng Việt.
+          </p>
+          <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400">
+            Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của Xuân Hòa trong hoạt động kinh doanh và phục vụ người tiêu dùng.
+          </p>
+        </div>
+
+        <div className="pl-4 sm:pl-8">
+          <ul className="list-decimal space-y-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
+            <li>Huân chương Lao Động Hạng Nhất</li>
+            <li>Huân chương Lao Động Hạng Nhì</li>
+            <li>Huân chương Độc Lập Hạng Nhì</li>
+            <li>Chứng nhận đạt ISO 14001:2015</li>
+            <li>Chứng nhận đạt ISO 9001:2015</li>
+            <li>Chứng nhận đạt ISO 45001:2018</li>
+            <li>Chứng nhận đạt ISO 13486: 2016</li>
+            <li>Chứng chỉ FSC- COC</li>
+            <li>Liên tục đạt Giải thưởng Sao Vàng Đất Việt</li>
+            <li>Giải thưởng Hàng Việt Nam Chất Lượng cao do người tiêu dùng bình chọn</li>
+            <li>Bảng vàng chất lượng Hàng hóa, dịch vụ</li>
+            <li>Giải thưởng Chất lượng Quốc gia 2004, 2017, 2020, 2021</li>
+            <li>Thương hiệu Quốc gia 2020</li>
+          </ul>
+        </div>
+
+        <div className="mt-8 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200/50 dark:border-zinc-800/50">
+          <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
+            Xem và tải Catalogue Nội thất Xuân Hòa
+          </h3>
+          <div className="flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
+            <div className="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <div>
+                <p className="font-medium text-black dark:text-white">Catalogue_noithatxuanhoa.pdf</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Nhấn vào để tải về hoặc xem trực tuyến</p>
+              </div>
+            </div>
+            <a
+              href="/Catalogue_noithatxuanhoa.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-black rounded-lg transition-colors duration-200"
+            >
+              Xem / Tải về
+            </a>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="text-2xl font-semibold mb-8">Bộ sưu tập nội thất</h3>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="group">
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50 transition-all duration-200 hover:ring-2 hover:ring-zinc-300 dark:hover:ring-zinc-700">
+                <ProjectVideo src={project.video} />
+              </div>
+              <div className="px-1 mt-4">
+                <a
+                  className="font-medium text-xl text-zinc-900 dark:text-zinc-50 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors duration-200"
+                  href={project.link}
+                  target="_blank"
+                >
+                  {project.name}
+                </a>
+                <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="text-2xl font-semibold mb-8">Dự án nội thất tiêu biểu</h3>
+        <div className="grid gap-4">
+          {WORK_EXPERIENCE.map((job) => (
+            <a
+              key={job.id}
+              className="group relative overflow-hidden rounded-2xl bg-zinc-50 dark:bg-zinc-900/80 p-6 transition-all duration-200 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+              href={job.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Spotlight
+                className="opacity-0 group-hover:opacity-100 from-zinc-200 via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-800 transition-opacity duration-500"
+                size={300}
+              />
+              <div className="relative flex flex-col sm:flex-row justify-between gap-4">
+                <div>
+                  <h4 className="text-xl font-medium text-black dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+                    {job.title}
+                  </h4>
+                  <p className="mt-1 text-base text-zinc-600 dark:text-zinc-400">
+                    {job.company}
+                  </p>
+                </div>
+                <p className="text-sm text-zinc-500 dark:text-zinc-500">
+                  {job.start} - {job.end}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+        id="contact"
+        className="relative overflow-hidden rounded-2xl bg-zinc-50 dark:bg-zinc-900/80 p-6 sm:p-8"
+      >
+        <Spotlight
+          className="from-zinc-200 via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-800"
+          size={400}
+        />
+        <div className="relative">
+          <h3 className="text-2xl font-semibold mb-4">Liên hệ</h3>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-6">
+            Liên hệ với chúng tôi qua email:{' '}
+            <a className="font-medium underline decoration-2 underline-offset-2 hover:text-black dark:hover:text-white transition-colors" href={`mailto:${EMAIL}`}>
+              {EMAIL}
+            </a>
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {SOCIAL_LINKS.map((link) => (
+              <MagneticSocialLink key={link.label} link={link.link}>
+                {link.label}
+              </MagneticSocialLink>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+    </motion.div>
+  )
+}

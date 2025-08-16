@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     canonical: '/'
   },
   title: {
-    default: 'Nim - Personal website template',
-    template: '%s | Nim'
+    default: 'Nội Thất Xuân Hòa - Tiêu chuẩn Quốc Tế, Giá trị Bền Lâu',
+    template: '%s | Nội Thất Xuân Hòa'
   },
-  description:  'Nim is a free and open-source personal website template built with Next.js 15, React 19 and Motion-Primitives.',
+  description:  'Thiết kế và sản xuất nội thất văn phòng, gia đình, trường học, hội trường phong cách hiện đại trẻ trung năng động.',
 };
 
 const geist = Geist({
@@ -50,10 +50,25 @@ export default function RootLayout({
           defaultTheme="system"
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
-              <Header />
-              {children}
-              <Footer />
+            {/* Sticky Header */}
+            <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950/80">
+              <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
+                <Header />
+              </div>
+            </div>
+
+            {/* Main Content */}
+            <main className="flex-1 w-full mt-24 sm:mt-28">
+              <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
+                {children}
+              </div>
+            </main>
+
+            {/* Footer */}
+            <div className="mt-16 border-t border-zinc-200 dark:border-zinc-800">
+              <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 py-8">
+                <Footer />
+              </div>
             </div>
           </div>
         </ThemeProvider>
