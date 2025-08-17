@@ -1,15 +1,9 @@
-import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata } from 'next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  themeColor: '#ffffff',
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://noithatxuanhoa.com.vn/'),
@@ -21,16 +15,23 @@ export const metadata: Metadata = {
     template: '%s | Nội Thất Xuân Hòa'
   },
   description: 'Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của chúng tôi.',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
+  themeColor: '#ffffff',
 };
 
-const geist = Geist({
-  variable: '--font-geist',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
+  display: 'swap',
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
   subsets: ['latin'],
+  display: 'swap',
 })
 
 export default function RootLayout({
@@ -41,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+        className={`${inter.variable} ${jetbrainsMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider
           enableSystem={true}
@@ -49,7 +50,7 @@ export default function RootLayout({
           storageKey="theme"
           defaultTheme="system"
         >
-          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
+          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter)]">
             {/* Sticky Header */}
             <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950/80">
               <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
