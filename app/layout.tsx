@@ -6,7 +6,7 @@ import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://noithatxuanhoa.com.vn/'),
+  metadataBase: new URL('https://xuanhoa.net.vn/'),
   alternates: {
     canonical: '/'
   },
@@ -15,11 +15,46 @@ export const metadata: Metadata = {
     template: '%s | Nội Thất Xuân Hòa'
   },
   description: 'Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của chúng tôi.',
+  keywords: ['nội thất', 'nội thất xuân hòa', 'nội thất văn phòng', 'nội thất gia đình', 'bàn ghế', 'tủ tài liệu', 'nội thất cao cấp'],
+  authors: [{ name: 'Nội Thất Xuân Hòa' }],
   viewport: {
     width: 'device-width',
     initialScale: 1,
   },
   themeColor: '#ffffff',
+  openGraph: {
+    type: 'website',
+    locale: 'vi_VN',
+    url: 'https://xuanhoa.net.vn/',
+    siteName: 'Nội Thất Xuân Hòa',
+    title: 'Nội Thất Xuân Hòa - Nhà sản xuất nội thất hàng đầu Việt Nam',
+    description: 'Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của chúng tôi.',
+    images: [
+      {
+        url: 'https://xuanhoa.net.vn/Images/xuan-hoa1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nội Thất Xuân Hòa - Nhà sản xuất nội thất hàng đầu Việt Nam',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nội Thất Xuân Hòa - Nhà sản xuất nội thất hàng đầu Việt Nam',
+    description: 'Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất.',
+    images: ['https://xuanhoa.net.vn/Images/xuan-hoa1.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 const inter = Inter({
