@@ -182,7 +182,7 @@ export default function Personal() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                   <a
-                    href="/Catalogue_noithatxuanhoa.pdf"
+                    href="https://ik.imagekit.io/lq2v3refo/Xuanhoa/Catalogue_noithatxuanhoa.pdf?updatedAt=1755578087844"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 group font-medium shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
@@ -195,7 +195,7 @@ export default function Personal() {
                     Tải xuống Catalogue
                   </a>
                   <a
-                    href="/Catalogue_noithatxuanhoa.pdf"
+                    href="https://ik.imagekit.io/lq2v3refo/Xuanhoa/Catalogue_noithatxuanhoa.pdf?updatedAt=1755578087844"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-2.5 border border-zinc-300 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-500 text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-all duration-200 group font-medium"
