@@ -1,9 +1,15 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#ffffff',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://xuanhoa.net.vn/'),
@@ -17,11 +23,6 @@ export const metadata: Metadata = {
   description: 'Nội thất Xuân Hòa tự hào là một trong những doanh nghiệp hàng đầu Việt Nam về tư vấn, thiết kế và sản xuất trang thiết bị nội thất. Những huân chương cao quý và giải thưởng uy tín là minh chứng cho nỗ lực của chúng tôi.',
   keywords: ['nội thất', 'nội thất xuân hòa', 'nội thất văn phòng', 'nội thất gia đình', 'bàn ghế', 'tủ tài liệu', 'nội thất cao cấp'],
   authors: [{ name: 'Nội Thất Xuân Hòa' }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
-  themeColor: '#ffffff',
   openGraph: {
     type: 'website',
     locale: 'vi_VN',

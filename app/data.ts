@@ -45,14 +45,14 @@ export const PROJECTS: Project[] = [
     name: 'Nội thất trường học',
     description: 'Bàn ghế học sinh, bàn giáo viên, tủ sách, bảng viết, kệ để đồ, giường tầng, các sản phẩm nội thất chuyên dụng cho trường học, lớp học, phòng chức năng.',
     link: '#',
-    image: '/noi_that_truong_hoc.jpg',
+    image: 'https://ik.imagekit.io/lq2v3refo/Xuanhoa/Xuanhoa_Collection/noi_that_truong_hoc.webp?updatedAt=1755575352452',
     id: 'noithat-truonghoc',
   },
   {
     name: 'Nội thất nhà hàng khách sạn',
     description: 'Thiết kế và sản xuất nội thất cao cấp cho nhà hàng, khách sạn như: bàn ghế nhà hàng, quầy bar, tủ rượu, giường khách sạn, tủ đầu giường, bàn làm việc, tủ quần áo, sofa đón khách. Sản phẩm đạt tiêu chuẩn chất lượng quốc tế.',
     link: '#',
-    image: '/noi_that_nha_hang_khach_san.jpg',
+    image: 'https://ik.imagekit.io/lq2v3refo/Xuanhoa/Xuanhoa_Collection/noi_that_nha_hang_khach_san.webp?updatedAt=1755575352539',
     id: 'noithat-nhahang-khachsan',
   },
 ]
@@ -62,28 +62,28 @@ export const FEATURED_PROJECTS = [
     title: 'Bệnh viện 103',
     address: 'Số 261 Đ. Phùng Hưng, Hà Đông, Hà Nội',
     description: 'Cung cấp và lắp đặt nội thất cho toàn bộ khu vực phòng bệnh, phòng làm việc và khu vực công cộng của bệnh viện.',
-    image: '/Benh_vien_103.jpg',
+    image: 'https://ik.imagekit.io/lq2v3refo/Xuanhoa/Xuanhoa_project/Benh_vien_103.jpg?updatedAt=1755575079974',
     year: '2023'
   },
   {
     title: 'Viettel Crown Plaza',
     address: 'Hà Nội',
     description: 'Thiết kế và thi công nội thất văn phòng cao cấp cho tòa nhà Viettel Crown Plaza.',
-    image: '/Viettel Plaza.jpg',
+    image: 'https://ik.imagekit.io/lq2v3refo/Xuanhoa/Xuanhoa_project/Viettel%20Plaza.jpg?updatedAt=1755575080003',
     year: '2023'
   },
   {
     title: 'Chi nhánh ngân hàng OCB Nam Định',
     address: '256 Quang Trung, Nam Định',
     description: 'Cung cấp giải pháp nội thất toàn diện cho chi nhánh ngân hàng OCB tại Nam Định.',
-    image: '/Ngan_hang_OCB.jpg',
+    image: 'https://ik.imagekit.io/lq2v3refo/Xuanhoa/Xuanhoa_project/Ngan_hang_OCB.jpg?updatedAt=1755575080012',
     year: '2024'
   },
   {
     title: 'Cung văn hóa hữu nghị Việt Xô',
     address: '91 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội',
     description: 'Thiết kế và thi công nội thất cho không gian văn hóa mang tính biểu tượng của tình hữu nghị Việt - Xô.',
-    image: '/cung_van_hoa_huu_nghi_viet_xo.jpg',
+    image: 'https://ik.imagekit.io/lq2v3refo/Xuanhoa/Xuanhoa_project/cung_van_hoa_huu_nghi_viet_xo.jpg?updatedAt=1755575079982',
     year: '2023'
   }
 ]
